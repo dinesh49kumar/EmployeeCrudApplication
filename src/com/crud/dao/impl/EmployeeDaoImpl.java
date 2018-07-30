@@ -88,5 +88,4 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			System.out.println("employee object is stored in db successfully....");
 		}
 	}
-
 }

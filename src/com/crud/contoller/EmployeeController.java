@@ -1,5 +1,8 @@
 package com.crud.contoller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,15 +19,20 @@ public class EmployeeController {
 	EmployeeService employeeService;
 	
 	@RequestMapping(value="/welcome", method=RequestMethod.GET)
-	public ModelAndView welcome() {
-//		public ModelAndView welcome(HttpServletRequest request, HttpServletResponse response) {
+//	public ModelAndView welcome() {
+		public ModelAndView welcome(HttpServletRequest request, HttpServletResponse response) {
+		String name=request.getParameter("name");
+		String email=request.getParameter("emailid");
+		String sal=request.getParameter("salary");
+		double salary=Double.parseDouble(sal);
+		int deptno=Integer.parseInt(request.getParameter("deptno"));
 		Employee employee = new Employee();
-		employee.setEmployeeName("Suraj");
-		employee.setEmail("suraj123@gmail.com");
-		employee.setSalary(40200);
-		employee.setDeptNum(20);
+		employee.setEmployeeName(name);
+		employee.setEmail(email);
+		employee.setSalary(salary);
+		employee.setDeptNum(deptno);
 		employeeService.insertEmployee(employee);
-		
+		System.out.println("Insert Successful");
 		return new ModelAndView("welcome", "message", "welcome to spring");
 	}
 }
