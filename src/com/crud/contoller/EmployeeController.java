@@ -33,6 +33,12 @@ public class EmployeeController {
 		employee.setDeptNum(deptno);
 		employeeService.insertEmployee(employee);
 		System.out.println("Insert Successful");
-		return new ModelAndView("welcome", "message", "welcome to spring");
+		return new ModelAndView("welcome", "message", "<html><body><center>welcome to spring</center></body></html>");
+	}
+	public ModelAndView welcome1(HttpServletRequest request, HttpServletResponse response) {
+		String name=request.getParameter("name");
+		String str="select * from "
+		
+				return new ModelAndView("welcome", "message", "<html><body><center>welcome to spring</center></body></html>");
 	}
 }

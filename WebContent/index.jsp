@@ -11,6 +11,7 @@
 </head>
 <body>
 	<form action="/EmployeeCrudApplication/welcome">
+		<a href="Update.jsp">Update Page</a>
 		<center>
 			<table boader="2">
 			
